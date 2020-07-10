@@ -1,10 +1,26 @@
+from collections import Counter
+
 def intersection(arrays):
     """
-    YOUR CODE HERE
-    """
-    # Your code here
+    First: we need to unpack these arrays. We can do this with a list
+    comprehension. Secondly: we need to create a hash table from the arrays.
+    Counter() is useful here; we can simply count the incidence of each element
+    in the arrays and then return all keys to where the count of such keys
+    is equal to the number of arrays.
 
-    return result
+    Note this currently runs the test at around 8 seconds. There may be ways
+    to trim down functional runtime, but I'm not sure whether there are ways
+    to trim the theoretical asymptotic runtime.
+    """
+    our_table = Counter()
+    for i in range(len(arrays)):
+        for j in arrays[i]:
+            our_table[j] += 1
+
+    list_results = [key for key in our_table.keys()
+     if our_table[key] == len(arrays)]
+
+    return list_results
 
 
 if __name__ == "__main__":
