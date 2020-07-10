@@ -1,10 +1,20 @@
+from collections import Counter
+
 def intersection(arrays):
     """
-    YOUR CODE HERE
+    First: we need to unpack these arrays. Secondly: we need to
+    create a hash table from the first array. Then we need to create
+    an intersection array that we then use
     """
-    # Your code here
+    our_table = Counter()
+    for i in range(len(arrays)):
+        for j in arrays[i]:
+            our_table[j] += 1
 
-    return result
+    list_results = [key for key in our_table.keys()
+     if our_table[key] == len(arrays)]
+
+    return list_results
 
 
 if __name__ == "__main__":
