@@ -8,7 +8,9 @@ def intersection(arrays):
     in the arrays and then return all keys to where the count of such keys
     is equal to the number of arrays.
 
-    Note this currently runs the test at around 8 seconds.
+    Note this currently runs the test at around 8 seconds. There may be ways
+    to trim down functional runtime, but I'm not sure whether there are ways
+    to trim the theoretical asymptotic runtime.
     """
     our_table = Counter()
     for i in range(len(arrays)):

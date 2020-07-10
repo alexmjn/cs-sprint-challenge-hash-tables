@@ -17,6 +17,7 @@ def finder(files, queries):
     our results; if they aren't, we continue the loop.
     """
     path_dict = {}
+
     for path in files:
         split_strings = path.split("/")
         file_name = split_strings.pop()
@@ -31,6 +32,7 @@ def finder(files, queries):
     result = []
 
     for query in queries:
+        # combine filename, if it exists, with all existing paths to that file
         if query in path_dict.keys():
             for path in path_dict[query]:
                 found_file = (path + "/" + query)
